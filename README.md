@@ -3,8 +3,8 @@
 This Repo is dedicated to studying basic randsomare and developing similar applications, then making programs to Scan the file and report any suspicious activity. It is purely  for education purpopses to detect the threat of ransomware in any file.
 
 ## Contributors:
-Abe Artus\\
-Elijah DeBruyne\\
+Abe Artus\n
+Elijah DeBruyne\n
 Zane Leslely
 
 ## To-Do
