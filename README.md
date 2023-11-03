@@ -11,9 +11,9 @@ Zane Leslely
 
 Virus to do
 - [X] Develop a simple in directory encyption malware in python
-- [ ] Develop a virus that will go beyond its directory and change other files
-- [ ] Develop a similar virus in C to encrypt a directory
-- [ ] Develop a dir changng virus that will encrypt files
+- [ ] Develop a virus that will go beyond its directory and change other files in Python
+- [ ] Develop a similar virus to encrypt a directory in C 
+- [ ] Develop a dir changng virus that will encrypt files in C
 
 File scanner to-do
 - [ ] Develop program to detect basic encryption malware from source file (.py)
