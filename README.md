@@ -9,7 +9,7 @@ Zane Lesley
 
 ## To-Do
 - [x] Hide file log file for virus 2 (zane)
-- [] Make a way to upload the log file for virus 2 with encryption to a different network(zane) 
+- [x] Make a way to upload the log file for virus 2 with encryption to a different network(zane) 
 - [] Detection/prescan software for virus 2 (zane)
 - [] real time detection (Hard, would require some sort of low level kernal system)
 
@@ -29,11 +29,17 @@ File scanner to-do
 This virus will encrypt all files in the directory it's attached too, it will print out the encrytion key but thats just incase we do something wrong...
 
 ## Virus 2:
-This is a keylogger that will record the user's keystroke into a file called log.txt
+This is a keylogger that will record the user's keystroke into a file called log.txt. It will then send this file to a different server (we are just using localhost) then will delete the original log file off the computer.
 - for further information on code, here are some resources:
     1. [basics of logging](https://docs.python.org/3/howto/logging.html#logging-basic-tutorial://www.example.com)
     2. [basics of the keyboard monitoring](https://pynput.readthedocs.io/en/latest/keyboard.html#reference)
     3. [logging config](https://docs.python.org/3/library/logging.config.html)
+    4. [CBC Encryption](https://pycryptodome.readthedocs.io/en/latest/src/cipher/classic.html#cbc-mode)
+    5. [Socket](https://realpython.com/python-sockets/#background)
+
+
+
 
 ## Dependencies:
-[pynput](https://pypi.org/project/pynput/)
+- [pynput](https://pypi.org/project/pynput/)
+- [pycryptodome](https://pypi.org/project/pycryptodome/)
