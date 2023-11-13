@@ -37,6 +37,12 @@ This is a keylogger that will record the user's keystroke into a file called log
     4. [CBC Encryption](https://pycryptodome.readthedocs.io/en/latest/src/cipher/classic.html#cbc-mode)
     5. [Socket](https://realpython.com/python-sockets/#background)
 
+### Detection for Keylogger
+Uses a python AST to go through and look specific keywords that are used from the keylogger python file, to expand on this you would contiune to cover
+all types of different keywords to do with keyboard monitoring and logging/writing things to a file
+- for further information on code, here are some resources:
+    1. [AST Documentation](https://docs.python.org/3/library/ast.html#)
+
 
 
 
