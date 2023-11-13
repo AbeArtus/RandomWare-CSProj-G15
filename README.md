@@ -23,3 +23,6 @@ File scanner to-do
 
 ## Virus 1:
 This virus will encrypt all files in the directory it's attached too, it will print out the encrytion key but thats just incase we do something wrong...
+
+## Virus 2:
+This is a keylogger that will record the user's keystroke into a file called log.txt
