@@ -5,9 +5,13 @@ This Repo is dedicated to studying basic randsomare and developing similar appli
 ## Contributors:
 Abe Artus  
 Elijah DeBruyne  
-Zane Leslely
+Zane Lesley
 
 ## To-Do
+- Hide file log file for virus 2 (zane)
+- Make a way to upload the log file for virus 2 with encryption to a different network(zane) 
+- Detection/prescan software for virus 2 (zane)
+- real time detection (Hard, would require some sort of low level kernal system)
 
 Virus to do
 - [X] Develop a simple in directory encyption malware in python
@@ -26,3 +30,10 @@ This virus will encrypt all files in the directory it's attached too, it will pr
 
 ## Virus 2:
 This is a keylogger that will record the user's keystroke into a file called log.txt
+- for further information on code, here are some resources:
+    1. [basics of logging](https://docs.python.org/3/howto/logging.html#logging-basic-tutorial://www.example.com)
+    2. [basics of the keyboard monitoring](https://pynput.readthedocs.io/en/latest/keyboard.html#reference)
+    3. [logging config](https://docs.python.org/3/library/logging.config.html)
+
+## Dependencies:
+[pynput](https://pypi.org/project/pynput/)
