@@ -8,10 +8,10 @@ Elijah DeBruyne
 Zane Lesley
 
 ## To-Do
-- Hide file log file for virus 2 (zane)
-- Make a way to upload the log file for virus 2 with encryption to a different network(zane) 
-- Detection/prescan software for virus 2 (zane)
-- real time detection (Hard, would require some sort of low level kernal system)
+- [x] Hide file log file for virus 2 (zane)
+- [] Make a way to upload the log file for virus 2 with encryption to a different network(zane) 
+- [] Detection/prescan software for virus 2 (zane)
+- [] real time detection (Hard, would require some sort of low level kernal system)
 
 Virus to do
 - [X] Develop a simple in directory encyption malware in python
