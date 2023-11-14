@@ -1,6 +1,6 @@
 # RandsomWare detection software
 
-This Repo is dedicated to studying basic randsomare and developing similar applications, then making programs to Scan the file and report any suspicious activity. It is purely  for education purpopses to detect the threat of ransomware in any file.
+This Repo is dedicated to studying basic randsomware and developing similar applications, then making programs to Scan the file and report any suspicious activity. It is purely  for education purpopses to detect the threat of ransomware in any file, this is currently under the ideology that we know what attack is coming for simplification purposes. Creating an entire antivirus for any file is possible, but is quite simply out of our reach at this point.
 
 ## Contributors:
 Abe Artus  
@@ -8,11 +8,21 @@ Elijah DeBruyne
 Zane Lesley
 
 ## To-Do
-- [x] Hide file log file for virus 2 (zane)
-- [x] Make a way to upload the log file for virus 2 with encryption to a different network(zane) 
-- [] Detection/prescan software for virus 2 (zane)
-- [] real time detection (Hard, would require some sort of low level kernal system)
+### Virus 2 (zane)
+- [x] Hide file log file for virus 2
+- [x] Make a way to upload the log file for virus 2 with encryption to a different network
+- [x] Detection/prescan software for virus 2
+- [ ] real time detection (Hard, would require some sort of low level kernal system)
+- [ ] send key from server to virus
+- [ ] create kill/delete command from server to virus
+- [ ] be able to log multiple days instead of just one log file
+- [ ] more checking of file from the detecter (including socket and attempt to get ip/host)
+- [ ] see if any information about key is avaliable from detector
+- [ ] be able to hold more log files on server script.
+- [ ] experiment with what happens if the user turns the computer off.
+- [ ] POSSIBLE: expand virus to be able to monitor mouse movement, as well as be able to control both mouse and keyboard.
 
+### Others:
 Virus to do
 - [X] Develop a simple in directory encyption malware in python
 - [ ] Develop a virus that will go beyond its directory and change other files in Python
