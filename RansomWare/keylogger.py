@@ -89,9 +89,9 @@ while True:
 
         break
     except Exception as e:
-        print("error connecting, trying again.")
+        print("error connecting, trying again.", end="")
         time.sleep(2)
-        print(".")
+        print(".",end="")
         time.sleep(2)
         print(".")
         time.sleep(1)
