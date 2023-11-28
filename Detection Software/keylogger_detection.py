@@ -1,6 +1,9 @@
 import ast
 import os
 
+config_imports = []
+config_functions = []
+
 class FileOpenVisitor(ast.NodeVisitor):
     def __init__(self):
         self.logging_filename = None
@@ -9,16 +12,16 @@ class FileOpenVisitor(ast.NodeVisitor):
     #Covers base imports
     def visit_Import(self, node):
         for alias in node.names:
-            if alias.name == 'logging':
-                print(f"Logging module imported at line {node.lineno}")
-            elif alias.name == 'pynput':
-                print(f"Monitoring or Control module imported at line {node.lineno}")
+                for module in config_imports:
+                    if alias.name == module:
+                        print(f"{module} module imported at line {node.lineno}")
         self.generic_visit(node)
 
     #Covers Import ... from ...
     def visit_ImportFrom(self, node):
-            if node.module == 'pynput':
-                print(f"possible keyboard control/monitoring from {node.module} at line {node.lineno}")
+            for module in config_imports:
+                if node.module == module:
+                    print(f"{module} module imported at line {node.lineno}")
 
     #Goes through all base level variables (variables with value attached)
     def visit_Assign(self, node):
@@ -31,10 +34,11 @@ class FileOpenVisitor(ast.NodeVisitor):
     def visit_Call(self, node):
         if (
             isinstance(node.func, ast.Attribute) and
-            isinstance(node.func.value, ast.Name) and
-            node.func.value.id == 'logging' and
-            node.func.attr == 'basicConfig'
+            isinstance(node.func.value, ast.Name) ##and
+            ##node.func.value.id == 'logging' and
+            ##node.func.attr == 'basicConfig'
         ):
+            print(node.func.value.id)
             for keyword in node.keywords:
                 if keyword.arg == 'filename':
                     variable_name = keyword.value.id
@@ -43,6 +47,7 @@ class FileOpenVisitor(ast.NodeVisitor):
 
         self.generic_visit(node)
 
+#Load Python File
 def check_python_file(filename):
     with open(filename, 'r') as file:
         code = file.read()
@@ -51,11 +56,36 @@ def check_python_file(filename):
     visitor = FileOpenVisitor()
     visitor.visit(tree)
 
+##TODO Improve the Logic FLow here
+def read_config_file(filepath):
+    config_import_boolean = False
+    config_function_boolean = False
+    with open(os.path.join(filepath, 'config.txt'), 'r') as file:
+        for line in file:
+            line = line.strip().lower()
+            if "##" in line:
+                config_function_boolean = False
+                config_import_boolean = False
+            if((line == '##imports') | config_import_boolean):
+                config_import_boolean = True
+                config_imports.append(line)
+            if((line == '##function value id') | config_function_boolean):
+                config_function_boolean = True
+                config_functions.append(line)
+
+
+    
+    #Remove Headings in config file
+    del config_imports[0]
+    del config_functions[0]
+    print(config_functions)
+
+def find_weight():
+    return
+
 if __name__ == '__main__':
-    current_dir = os.getcwd()
-
-    parent_dir = os.path.dirname(current_dir)
-    os.chdir(parent_dir)
-
-    keylogger_path = os.path.join(current_dir, 'RansomWare\keylogger.py')
+    os.chdir(os.path.dirname(__file__))
+    os.chdir('../')
+    keylogger_path = os.path.join(os.getcwd(), 'RansomWare\python files\keylogger.py')
+    read_config_file(os.path.dirname(__file__))
     check_python_file(keylogger_path)
