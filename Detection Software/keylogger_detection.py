@@ -32,18 +32,20 @@ class FileOpenVisitor(ast.NodeVisitor):
 
     #Covers any Calling function
     def visit_Call(self, node):
-        if (
-            isinstance(node.func, ast.Attribute) and
-            isinstance(node.func.value, ast.Name) ##and
-            ##node.func.value.id == 'logging' and
-            ##node.func.attr == 'basicConfig'
-        ):
-            print(node.func.value.id)
-            for keyword in node.keywords:
-                if keyword.arg == 'filename':
-                    variable_name = keyword.value.id
-                    self.logging_filename = self.variables[variable_name]
-                    print(f"Logging to file configured at line {node.lineno}, filename: {self.logging_filename}")
+        for function in config_functions:
+            if (
+                isinstance(node.func, ast.Attribute) and
+                isinstance(node.func.value, ast.Name) and
+                node.func.value.id == function
+            ):
+                print(f"Function call {function} called at {node.lineno}")
+
+                #Configuration of a logging file
+                for keyword in node.keywords:
+                    if keyword.arg == 'filename':
+                        variable_name = keyword.value.id
+                        self.logging_filename = self.variables[variable_name]
+                        print(f"Logging to file configured at line {node.lineno}, filename: {self.logging_filename}")
 
         self.generic_visit(node)
 
