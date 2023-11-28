@@ -16,11 +16,13 @@ Zane Lesley
 - [ ] Send key from server to virus
 - [ ] Create kill/delete command from server to virus
 - [ ] Be able to log multiple days instead of just one log file
-- [ ] More checking of file from the detecter (including socket and attempt to get ip/host)
+- [x] More checking of file from the detecter (including socket and attempt to get ip/host)
 - [ ] See if any information about key is avaliable from detector
 - [ ] Be able to hold more log files on server script.
 - [ ] Experiment with what happens if the user turns the computer off.
 - [ ] POSSIBLE: Expand virus to be able to monitor mouse movement, as well as be able to control both mouse and keyboard.
+- [ ] Add weight system to detection software
+- [ ] Add program to add things to the config.txt 
 
 ### Others:
 Virus to do
@@ -52,6 +54,13 @@ Uses a python AST to go through and look specific keywords that are used from th
 all types of different keywords to do with keyboard monitoring and logging/writing things to a file.
 - for further information on code, here are some resources:
     1. [AST Documentation](https://docs.python.org/3/library/ast.html#)
+
+### Configuration file usage:
+To use the configuration file, add the item you want to the respective spot. The headings are currently hard coded into the code and messing with those will result
+in the program unable to run. 
+- Config file headings:
+    1. The imports heading will look for anything called at the top of a python project with 'imports xxx' as well as 'from xxx import xxx'
+    2. The function ID Heading will look for anything in the format xxx.--- and will list where that has occured in program output.
 
 
 
