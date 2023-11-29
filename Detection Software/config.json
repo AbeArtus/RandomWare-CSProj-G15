@@ -1,0 +1,22 @@
+{
+  "config_imports": [
+    {
+      "name": "pynput",
+      "weight": "50"
+    },
+    {
+      "name": "logging",
+      "weight": "25"
+    }
+  ],
+  "config_function": [
+    {
+      "name": "aes",
+      "weight": "25"
+    },
+    {
+      "name": "client",
+      "weight": "25"
+    }
+  ]
+}

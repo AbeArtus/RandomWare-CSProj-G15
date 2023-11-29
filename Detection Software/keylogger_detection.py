@@ -1,5 +1,6 @@
 import ast
 import os
+import json
 
 config_imports = []
 config_functions = []
@@ -60,27 +61,13 @@ def check_python_file(filename):
 
 ##TODO Improve the Logic FLow here
 def read_config_file(filepath):
-    config_import_boolean = False
-    config_function_boolean = False
-    with open(os.path.join(filepath, 'config.txt'), 'r') as file:
-        for line in file:
-            line = line.strip().lower()
-            if "##" in line:
-                config_function_boolean = False
-                config_import_boolean = False
-            if((line == '##imports') | config_import_boolean):
-                config_import_boolean = True
-                config_imports.append(line)
-            if((line == '##function value id') | config_function_boolean):
-                config_function_boolean = True
-                config_functions.append(line)
+    with open(os.path.join(filepath, 'config.json'), 'r') as file:
+        data = json.load(file)
+        for item in data['config_imports']:
+            config_imports.append(item.get('name'))
+        for item in data['config_function']:
+            config_functions.append(item.get('name'))
 
-
-    
-    #Remove Headings in config file
-    del config_imports[0]
-    del config_functions[0]
-    print(config_functions)
 
 def find_weight():
     return
