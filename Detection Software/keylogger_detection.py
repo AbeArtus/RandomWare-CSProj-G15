@@ -53,9 +53,6 @@ class FileOpenVisitor(ast.NodeVisitor):
 
         self.generic_visit(node)
 
-
-    def visit_FunctionDef(self, node):
-        print(f"{node.name} at {node.lineno}")
 #Load Python File
 def check_python_file(filename):
     with open(filename, 'r') as file:
