@@ -54,7 +54,7 @@ def add_item():
                     "name": name,
                     "weight": weight
                 }
-                if (json_check_key(data, name, 'config_function') == True):
+                if (json_check_key(data, name, 'config_function') == False):
                     write_json(data, new_entry, 'config_function')
                 else:
                     print(f"print {name} already exists.")
@@ -67,7 +67,36 @@ def edit_item():
 def edit_weight():
     return
 def remove_item():
-    return
+    user_input = None
+    while user_input not in (1,2):
+        user_input = int(input('''Which topic would you like to edit?
+                  [1] Import Calls
+                  [2] Function Calls
+                  '''))
+        match user_input:
+            case 1:
+                data = open_json()
+                i = 0
+                print(f"which item would you like to remove? ")
+                for item in data['config_imports']:
+                    i+=1
+                    print(f"[{i}] {item.get('name')}")
+                index = int(input())
+                del data['config_imports'][index - 1]
+                write_json(data, None , 'config_imports')
+                    
+            case 2:
+                data = open_json()
+                i = 0
+                print(f"which item would you like to remove? ")
+                for item in data['config_function']:
+                    i+=1
+                    print(f"[{i}] {item.get('name')}")
+                index = int(input())
+                del data['config_imports'][index - 1]
+                write_json(data, None , 'config_function')
+            case _:
+                print("Please insert 1 or 2")
 
 def open_json():
     try:
@@ -79,7 +108,8 @@ def open_json():
 
 def write_json(data, new_entry, key):
     try:
-        data[key].append(new_entry)
+        if new_entry != None:
+            data[key].append(new_entry)
         with open(os.path.join(os.path.dirname(__file__), 'config.json'), 'w') as json_file:
             json.dump(data, json_file, indent=2)
     except Exception as e:
