@@ -1,0 +1,16 @@
+{
+  "config_imports": [
+    {
+      "import": "pynput",
+      "weight": "50"
+    },
+    {
+      "import": "logging",
+      "weight": "10"
+    },
+    {
+      "name": "test",
+      "weight": "10"
+    }
+  ]
+}
