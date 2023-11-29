@@ -93,7 +93,7 @@ def remove_item():
                     i+=1
                     print(f"[{i}] {item.get('name')}")
                 index = int(input())
-                del data['config_imports'][index - 1]
+                del data['config_function'][index - 1]
                 write_json(data, None , 'config_function')
             case _:
                 print("Please insert 1 or 2")

@@ -7,6 +7,10 @@
     {
       "name": "logging",
       "weight": "25"
+    },
+    {
+      "name": "cipher",
+      "weight": "50"
     }
   ],
   "config_function": [
@@ -17,6 +21,14 @@
     {
       "name": "client",
       "weight": "25"
+    },
+    {
+      "name": "os",
+      "weight": "10"
+    },
+    {
+      "name": "open",
+      "weight": "10"
     }
   ]
 }
