@@ -62,8 +62,8 @@ def check_python_file(filename):
 def read_config_file(filepath):
     config_import_boolean = False
     config_function_boolean = False
-    with open(os.path.join(filepath, 'config.txt'), 'r') as file:
-        for line in file:
+    with open(os.path.join(filepath, 'config.json'), 'r') as file:
+        '''for line in file:
             line = line.strip().lower()
             if "##" in line:
                 config_function_boolean = False
@@ -73,14 +73,8 @@ def read_config_file(filepath):
                 config_imports.append(line)
             if((line == '##function value id') | config_function_boolean):
                 config_function_boolean = True
-                config_functions.append(line)
+                config_functions.append(line)'''
 
-
-    
-    #Remove Headings in config file
-    del config_imports[0]
-    del config_functions[0]
-    print(config_functions)
 
 def find_weight():
     return
@@ -90,4 +84,4 @@ if __name__ == '__main__':
     os.chdir('../')
     keylogger_path = os.path.join(os.getcwd(), 'RansomWare\python files\keylogger.py')
     read_config_file(os.path.dirname(__file__))
-    check_python_file(keylogger_path)
+    #check_python_file(keylogger_path)
