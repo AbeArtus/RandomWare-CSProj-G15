@@ -133,7 +133,11 @@ def process_directory(directory_path):
         print(f"Processing file: {file}")
         process_python_file(file)
 
+
 if __name__ == '__main__':
-    directory_path = 'C:/Users/Pause/Documents/Python Scripts' 
-    read_config_file(os.path.dirname(__file__))
-    process_directory(directory_path)
+    directory_path = input("Enter the path to the directory containing Python files: ")
+    if os.path.isdir(directory_path):
+        read_config_file(os.path.dirname(__file__))
+        process_directory(directory_path)
+    else:
+        print("Invalid directory path")
