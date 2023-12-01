@@ -36,5 +36,7 @@ def calculate_risk(directory_path):
         print(f"  RP (Risk Percentage): {rp:.2f}%\n")
 
 # Example usage
-directory_path = 'C:/Users/Pause/Documents/GitHub/RandomWare-CSProj-G15/RansomWare/python files'  # Update with the path to your CSV files
+os.chdir(os.path.dirname(__file__))
+os.chdir('../')
+directory_path = os.path.join(os.getcwd(), 'RansomWare/python files')
 calculate_risk(directory_path)
