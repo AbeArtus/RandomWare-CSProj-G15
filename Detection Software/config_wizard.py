@@ -128,7 +128,10 @@ def remove_item():
 
 def open_json():
     try:
-        with open('config.json', 'r') as json_file:
+        os.chdir(os.path.dirname(__file__))
+        os.chdir('../')
+        directory_path = os.path.join(os.getcwd(), 'Detection Software/config.json')
+        with open(directory_path, 'r') as json_file:
             return json.load(json_file)
     except Exception as e:
         print(f"Error with JSON: {e}")

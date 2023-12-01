@@ -4,7 +4,7 @@ import os
 
 def calculate_risk(directory_path):
     # Constants
-    constant_for_saf = 10  # Modify as needed
+    constant_for_saf = 90  # Modify as needed
     threshold = 30
     threshold_forgiveness = 0.5
 
