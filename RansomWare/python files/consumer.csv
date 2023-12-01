@@ -1,0 +1,29 @@
+Type,Detail,Line Number,Weight
+Import,socket,1,50
+Import ... from ...,From base64 import b64decode,4,50
+Function call,AES.new,12,50
+Function as argument,AES.MODE_CBC,12,50
+Function call,socket.socket,15,50
+Function as argument,socket.AF_INET,15,50
+Function as argument,socket.SOCK_STREAM,15,50
+Function call,server.bind,16,50
+Function call,server.listen,17,50
+Function call,server.accept,19,50
+Function call,client.recv,22,50
+Function call,client.recv,29,50
+Function call,all_data.find,36,50
+Function call,all_data.find,37,50
+Direct function call,len,39,50
+Direct function call,b64decode,44,50
+Direct function call,b64decode,45,50
+Function call,AES.new,46,50
+Function as argument,AES.MODE_CBC,46,50
+Direct function call,unpad,47,50
+Function as argument,AES.block_size,47,50
+Function call,cipher.decrypt,47,50
+Direct function call,open,48,50
+Function call,file.write,49,50
+Direct function call,print,51,50
+Function call,file.close,54,50
+Function call,client.close,55,50
+Function call,server.close,56,50
