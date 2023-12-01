@@ -27,12 +27,14 @@ class FileOpenVisitor(ast.NodeVisitor):
                 self.csv_writer.writerow(['Import ... from ...', f'From {module} import {name.name}', node.lineno, weight])
         self.generic_visit(node)
 
+
     #Goes through all base level variables (variables with value attached)
     def visit_Assign(self, node):
         for target in node.targets:
             if isinstance(target, ast.Name) and isinstance(node.value, ast.Str):
                 self.variables[target.id] = node.value.s
         self.generic_visit(node)
+
 
     # Covers any Calling function
     '''def visit_Call(self, node):
@@ -101,6 +103,7 @@ class FileOpenVisitor(ast.NodeVisitor):
         self.generic_visit(node)
 
 # Load Python File
+
 def check_python_file(filename):
     with open(filename, 'r') as file:
         code = file.read()
@@ -124,6 +127,7 @@ def extract_config_items(data):
                     weight = value.get("weight", default_weight) 
                     extracted_items[category][key] = weight
     return extracted_items
+
 
 def find_weight():
     return
@@ -157,3 +161,9 @@ if __name__ == '__main__':
         process_directory(directory_path)
     else:
         print("Invalid directory path")
+# if __name__ == '__main__':
+#     os.chdir(os.path.dirname(__file__))
+#     os.chdir('../')
+#     keylogger_path = os.path.join(os.getcwd(), 'RansomWare\python files\keylogger.py')
+#     read_config_file(os.path.dirname(__file__))
+#     check_python_file(keylogger_path)
