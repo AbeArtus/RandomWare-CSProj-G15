@@ -35,31 +35,6 @@ class FileOpenVisitor(ast.NodeVisitor):
                 self.variables[target.id] = node.value.s
         self.generic_visit(node)
 
-
-    # Covers any Calling function
-    '''def visit_Call(self, node):
-        if isinstance(node.func, ast.Attribute) and isinstance(node.func.value, ast.Name):
-            # Check for method call
-            method_call = f"{node.func.value.id}.{node.func.attr}"
-            if method_call in config_items["Functions"]:
-                print(f"Method call '{method_call}' at line {node.lineno}")
-
-        elif isinstance(node.func, ast.Name):
-            # Check for direct function call
-            if node.func.id in config_items["Functions"]:
-                print(f"Direct function call '{node.func.id}' at line {node.lineno}")
-
-        # Check for functions passed as arguments
-        for arg in node.args:
-            if isinstance(arg, ast.Name) and arg.id in config_items["Functions"]:
-                print(f"Function '{arg.id}' used as argument at line {node.lineno}")
-
-        for keyword in node.keywords:
-            if isinstance(keyword.value, ast.Name) and keyword.value.id in config_items["Functions"]:
-                print(f"Function '{keyword.value.id}' used as named argument '{keyword.arg}' at line {node.lineno}")
-
-        self.generic_visit(node)'''
-
 #### difference is this one can detect all functions from any of the imported libraries
     def visit_Call(self, node):
         if isinstance(node.func, ast.Attribute) and isinstance(node.func.value, ast.Name):
@@ -102,16 +77,6 @@ class FileOpenVisitor(ast.NodeVisitor):
 
         self.generic_visit(node)
 
-# Load Python File
-
-def check_python_file(filename):
-    with open(filename, 'r') as file:
-        code = file.read()
-        tree = ast.parse(code, filename=filename)
-
-    visitor = FileOpenVisitor()
-    visitor.visit(tree)
-
 def read_config_file(filepath):
     global config_items
     with open(os.path.join(filepath, 'config.json'), 'r') as file:
@@ -128,9 +93,6 @@ def extract_config_items(data):
                     extracted_items[category][key] = weight
     return extracted_items
 
-
-def find_weight():
-    return
 
 def process_python_file(filename, directory_path):
     # Create a CSV file name based on the Python file name
@@ -161,9 +123,3 @@ if __name__ == '__main__':
         process_directory(directory_path)
     else:
         print("Invalid directory path")
-# if __name__ == '__main__':
-#     os.chdir(os.path.dirname(__file__))
-#     os.chdir('../')
-#     keylogger_path = os.path.join(os.getcwd(), 'RansomWare\python files\keylogger.py')
-#     read_config_file(os.path.dirname(__file__))
-#     check_python_file(keylogger_path)
