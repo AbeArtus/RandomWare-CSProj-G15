@@ -5,7 +5,7 @@ import glob
 import csv
 
 config_items = {}
-default_weight = 50
+default_weight = 5
 
 class FileOpenVisitor(ast.NodeVisitor):
     def __init__(self, csv_writer):

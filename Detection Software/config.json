@@ -35,51 +35,51 @@
       "system": [
           {
               "os": {
-                  "weight": 50
+                  "weight": 10
               }
           },
           {
               "sys": {
-                  "weight": 50
+                  "weight": 10
               }
           },
           {
               "subprocess": {
-                  "weight": 50
+                  "weight": 10
               }
           },
           {
               "multiprocessing": {
-                  "weight": 50
+                  "weight": 10
               }
           },
           {
               "threading": {
-                  "weight": 50
+                  "weight": 10
               }
           }
       ],
       "execution": [
           {
               "eval": {
-                  "weight": 50
+                  "weight": 1
               }
           },
           {
               "exec": {
-                  "weight": 50
+                  "weight": 20
               }
           },
           {
               "compile": {
-                  "weight": 50
+                  "weight": 10
               }
           }
       ],
       "file": [
           {
               "open": {
-                  "weight": 50
+                  "weight": 10
               }
           },
           {
@@ -89,7 +89,7 @@
           },
           {
               "os.path": {
-                  "weight": 50
+                  "weight": 10
               }
           }
       ],
@@ -152,53 +152,53 @@
       "database": [
           {
               "sqlite3": {
-                  "weight": 50
+                  "weight": 5
               }
           },
           {
               "pymysql": {
-                  "weight": 50
+                  "weight": 5
               }
           },
           {
               "psycopg2": {
-                  "weight": 50
+                  "weight": 5
               }
           }
       ],
       "hardware_info": [
           {
               "cpuinfo": {
-                  "weight": 50
+                  "weight": 20
               }
           },
           {
               "gpuinfo": {
-                  "weight": 50
+                  "weight": 20
               }
           }
       ],
       "python_internals": [
           {
               "dis": {
-                  "weight": 50
+                  "weight": 5
               }
           },
           {
               "inspect": {
-                  "weight": 50
+                  "weight": 5
               }
           }
       ],
       "gui_automation":[
           {
               "pyautogui": {
-                  "weight": 50
+                  "weight": 15
               }
           },
           {
               "pynput": {
-                  "weight": 50
+                  "weight": 1000
               }
           }
       ]
@@ -207,73 +207,73 @@
       "os_commands": [
           {
               "os.system": {
-                  "weight": 50
+                  "weight": 10
               }
           },
           {
               "os.popen": {
-                  "weight": 50
+                  "weight": 10
               }
           },
           {
               "subprocess.run": {
-                  "weight": 50
+                  "weight": 25
               }
           },
           {
               "subprocess.Popen": {
-                  "weight": 50
+                  "weight": 25
               }
           },
           {
               "os": {
-                  "weight": 50
+                  "weight": 15
               }
           }
       ],
       "file_operations": [
           {
               "file.read": {
-                  "weight": 50
+                  "weight": 25
               }
           },
           {
               "file.write": {
-                  "weight": 50
+                  "weight": 25
               }
           },
           {
               "open": {
-                  "weight": 50
+                  "weight": 25
               }
           }
       ],
       "dynamic_functions": [
           {
               "eval": {
-                  "weight": 50
+                  "weight": 10
               }
           },
           {
               "exec": {
-                  "weight": 50
+                  "weight": 10
               }
           }
       ],
       "network_functions": [
           {
               "socket.socket": {
-                  "weight": 50
+                  "weight": 15
               }
           },
           {
               "requests.get": {
-                  "weight": 50
+                  "weight": 40
               }
           },
           {
               "requests.post": {
-                  "weight": 50
+                  "weight": 40
               }
           }
       ],
@@ -307,12 +307,12 @@
       "peripherals": [
           {
               "on_press": {
-                  "weight": 50
+                  "weight": 100
               }
           },
           {
               "on_release": {
-                  "weight": 50
+                  "weight": 100
               }
           }
       ]
