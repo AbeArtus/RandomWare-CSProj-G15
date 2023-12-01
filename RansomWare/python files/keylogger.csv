@@ -1,9 +1,9 @@
 Type,Detail,Line Number,Weight
-Import ... from ...,From pynput import keyboard,2,5
+Import ... from ...,From pynput import keyboard,2,1000
 Import,logging,3,5
 Import,os,4,10
 Import,socket,5,50
-Import ... from ...,From base64 import b64encode,8,5
+Import ... from ...,From base64 import b64encode,8,50
 Import,time,9,5
 Function call,os.remove,16,5
 Function call,logging.basicConfig,18,5

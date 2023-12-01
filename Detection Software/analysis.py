@@ -12,7 +12,6 @@ class FileOpenVisitor(ast.NodeVisitor):
         self.csv_writer = csv_writer
         self.variables = {}
 
-    # Combined visit_Import method
     def visit_Import(self, node):
         for alias in node.names:
             weight = config_items["Libraries"].get(alias.name, default_weight)
@@ -23,7 +22,7 @@ class FileOpenVisitor(ast.NodeVisitor):
         module = node.module
         if module in config_items["Libraries"]:
             for name in node.names:
-                weight = config_items["Libraries"].get(name.name, default_weight)
+                weight = config_items["Libraries"].get(module, default_weight)
                 self.csv_writer.writerow(['Import ... from ...', f'From {module} import {name.name}', node.lineno, weight])
         self.generic_visit(node)
 
@@ -89,7 +88,7 @@ def extract_config_items(data):
         for subcategory, items in data[category].items():
             for item in items:
                 for key, value in item.items():
-                    weight = value.get("weight", default_weight) 
+                    weight = int(value.get("weight", default_weight))
                     extracted_items[category][key] = weight
     return extracted_items
 

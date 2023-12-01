@@ -1,6 +1,6 @@
 Type,Detail,Line Number,Weight
 Import,socket,1,50
-Import ... from ...,From base64 import b64decode,4,5
+Import ... from ...,From base64 import b64decode,4,50
 Function call,AES.new,12,5
 Function as argument,AES.MODE_CBC,12,5
 Function call,socket.socket,15,15
