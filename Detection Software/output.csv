@@ -1,0 +1,80 @@
+Type,Detail,Line Number,Weight
+Import,socket,1,50
+Import ... from ...,From base64 import b64decode,4,50
+Function call,AES.new,12,50
+Function as argument,AES.MODE_CBC,12,50
+Function call,socket.socket,15,50
+Function as argument,socket.AF_INET,15,50
+Function as argument,socket.SOCK_STREAM,15,50
+Function call,server.bind,16,50
+Function call,server.listen,17,50
+Function call,server.accept,19,50
+Function call,client.recv,22,50
+Function call,client.recv,29,50
+Function call,all_data.find,36,50
+Function call,all_data.find,37,50
+Direct function call,len,39,50
+Direct function call,b64decode,44,50
+Direct function call,b64decode,45,50
+Function call,AES.new,46,50
+Function as argument,AES.MODE_CBC,46,50
+Direct function call,unpad,47,50
+Function as argument,AES.block_size,47,50
+Function call,cipher.decrypt,47,50
+Direct function call,open,48,50
+Function call,file.write,49,50
+Direct function call,print,51,50
+Function call,file.close,54,50
+Function call,client.close,55,50
+Function call,server.close,56,50
+Import ... from ...,From pynput import keyboard,2,50
+Import,logging,3,50
+Import,os,4,50
+Import,socket,5,50
+Import ... from ...,From base64 import b64encode,8,50
+Import,time,9,50
+Function call,os.remove,16,50
+Function call,logging.basicConfig,18,50
+Named function as argument,logging.DEBUG,18,50
+Function call,os.system,22,50
+Function call,logging.info,23,50
+Function call,logging.info,25,50
+Function call,logging.info,30,50
+Direct function call,str,30,50
+Function call,logging.info,32,50
+Direct function call,print,37,50
+Function call,logging.info,38,50
+Function call,listener.stop,39,50
+Function call,keyboard.Listener,43,50
+Named function as argument,on_press,43,50
+Named function as argument,on_release,43,50
+Function call,listener.join,48,50
+Direct function call,print,50,50
+Function call,logging.shutdown,52,50
+Function call,AES.new,58,50
+Function as argument,AES.MODE_CBC,58,50
+Function call,socket.socket,68,50
+Function as argument,socket.AF_INET,68,50
+Function as argument,socket.SOCK_STREAM,68,50
+Function call,client.connect,69,50
+Direct function call,open,72,50
+Function call,s.read,73,50
+Function call,cipher.encrypt,76,50
+Direct function call,pad,76,50
+Function as argument,AES.block_size,76,50
+Direct function call,b64encode,77,50
+Function as argument,cipher.iv,77,50
+Direct function call,b64encode,78,50
+Function call,client.send,81,50
+Function call,client.send,82,50
+Function call,client.send,83,50
+Function call,client.send,84,50
+Function call,client.send,85,50
+Function call,client.close,86,50
+Function call,os.remove,88,50
+Direct function call,print,92,50
+Function call,time.sleep,93,50
+Direct function call,print,94,50
+Function call,time.sleep,95,50
+Direct function call,print,96,50
+Function call,time.sleep,97,50

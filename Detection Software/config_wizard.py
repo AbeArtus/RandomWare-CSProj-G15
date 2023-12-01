@@ -3,7 +3,7 @@ import os
 import json
 
 def menu():
-    user_input = int(input('''Please select which an option from the list below:
+    user_input = int(input('''Please select an option from the list below:
           [1] Insert new item.
           [2] Edit existing item.
           [3] Edit existing weight.
@@ -22,105 +22,124 @@ def menu():
         case 5:
             sys.exit()
         case _:
-            print("please insert 1 through 5.")
+            print("Please insert a number from 1 through 5.")
             menu()
 
+def get_category_input():
+    category = input("Enter the category (Libraries or Functions): ").capitalize()
+    if category not in ["Libraries", "Functions"]:
+        print("Invalid category. Please enter either 'Libraries' or 'Functions'.")
+        return get_category_input()
+    return category
+
+def get_subcategory_input(data, category):
+    subcategories = list(data[category].keys())
+    print("Subcategories:")
+    for i, subcat in enumerate(subcategories, start=1):
+        print(f"[{i}] {subcat}")
+    choice = int(input("Select a subcategory: "))
+    if 1 <= choice <= len(subcategories):
+        return subcategories[choice - 1]
+    else:
+        print("Invalid choice. Please select a valid subcategory.")
+        return get_subcategory_input(data, category)
+
 def add_item():
-    user_input = None
-    while user_input not in (1,2):
-        user_input = int(input('''Which topic would you like to edit?
-                  [1] Import Calls
-                  [2] Function Calls
-                  '''))
-        match user_input:
-            case 1:
-                data = open_json()
-                name = input("Type input name: ").lower()
-                weight = input("Type weight: ")
-                new_entry = {
-                    "name": name,
-                    "weight": weight
-                }
-                if (json_check_key(data, name, 'config_imports') == False):
-                    write_json(data, new_entry, 'config_imports')
-                else:
-                    print(f"key {name} already exists.")
+    data = open_json()
+    category = get_category_input()
+    subcategory = get_subcategory_input(data, category)
 
-            case 2:
-                data = open_json()
-                name = input("Type function name: ").lower()
-                weight = input("Type weight: ")
-                new_entry = {
-                    "name": name,
-                    "weight": weight
-                }
-                if (json_check_key(data, name, 'config_function') == False):
-                    write_json(data, new_entry, 'config_function')
-                else:
-                    print(f"print {name} already exists.")
+    name = input("Enter the item name: ").lower()
+    weight = int(input("Enter the weight: "))
 
-            case _:
-                print("Please insert 1 or 2")
+    new_entry = {name: {"weight": weight}}
+    
+    if name not in data[category][subcategory]:
+        data[category][subcategory].append(new_entry)
+        write_json(data)
+        print(f"Item '{name}' added successfully.")
+    else:
+        print(f"The item '{name}' already exists in {category} -> {subcategory}.")
+
     menu()
+
 def edit_item():
-    return
+    data = open_json()
+    category = get_category_input()
+    subcategory = get_subcategory_input(data, category)
+
+    print("Items:")
+    for i, item in enumerate(data[category][subcategory], start=1):
+        item_name = list(item.keys())[0]
+        print(f"[{i}] {item_name}")
+
+    choice = int(input("Select an item to edit: "))
+    if 1 <= choice <= len(data[category][subcategory]):
+        new_name = input("Enter the new name for the item: ").lower()
+        data[category][subcategory][choice - 1] = {new_name: data[category][subcategory][choice - 1][list(data[category][subcategory][choice - 1].keys())[0]]}
+        write_json(data)
+        print("Item name updated successfully.")
+    else:
+        print("Invalid choice. Please select a valid item.")
+
+    menu()
+
 def edit_weight():
-    return
+    data = open_json()
+    category = get_category_input()
+    subcategory = get_subcategory_input(data, category)
+
+    print("Items:")
+    for i, item in enumerate(data[category][subcategory], start=1):
+        item_name = list(item.keys())[0]
+        print(f"[{i}] {item_name}")
+
+    choice = int(input("Select an item to edit its weight: "))
+    if 1 <= choice <= len(data[category][subcategory]):
+        new_weight = int(input("Enter the new weight: "))
+        item_name = list(data[category][subcategory][choice - 1].keys())[0]
+        data[category][subcategory][choice - 1][item_name]["weight"] = new_weight
+        write_json(data)
+        print("Item weight updated successfully.")
+    else:
+        print("Invalid choice. Please select a valid item.")
+
+    menu()
+
 def remove_item():
-    user_input = None
-    while user_input not in (1,2):
-        user_input = int(input('''Which topic would you like to edit?
-                  [1] Import Calls
-                  [2] Function Calls
-                  '''))
-        match user_input:
-            case 1:
-                data = open_json()
-                i = 0
-                print(f"which item would you like to remove? ")
-                for item in data['config_imports']:
-                    i+=1
-                    print(f"[{i}] {item.get('name')}")
-                index = int(input())
-                del data['config_imports'][index - 1]
-                write_json(data, None , 'config_imports')
-                    
-            case 2:
-                data = open_json()
-                i = 0
-                print(f"which item would you like to remove? ")
-                for item in data['config_function']:
-                    i+=1
-                    print(f"[{i}] {item.get('name')}")
-                index = int(input())
-                del data['config_function'][index - 1]
-                write_json(data, None , 'config_function')
-            case _:
-                print("Please insert 1 or 2")
+    data = open_json()
+    category = get_category_input()
+    subcategory = get_subcategory_input(data, category)
+
+    print("Items:")
+    for i, item in enumerate(data[category][subcategory], start=1):
+        item_name = list(item.keys())[0]
+        print(f"[{i}] {item_name}")
+
+    choice = int(input("Select an item to remove: "))
+    if 1 <= choice <= len(data[category][subcategory]):
+        del data[category][subcategory][choice - 1]
+        write_json(data)
+        print("Item removed successfully.")
+    else:
+        print("Invalid choice. Please select a valid item.")
+
+    menu()
 
 def open_json():
     try:
-        with open(os.path.join(os.path.dirname(__file__), 'config.json'), 'r') as json_file:
-            data = json.load(json_file)
+        with open('config.json', 'r') as json_file:
+            return json.load(json_file)
     except Exception as e:
-        print(f"error with json: {e}")
-    return data
+        print(f"Error with JSON: {e}")
+        sys.exit()
 
-def write_json(data, new_entry, key):
+def write_json(data):
     try:
-        if new_entry != None:
-            data[key].append(new_entry)
-        with open(os.path.join(os.path.dirname(__file__), 'config.json'), 'w') as json_file:
-            json.dump(data, json_file, indent=2)
+        with open('config.json', 'w') as json_file:
+            json.dump(data, json_file, indent=4)
     except Exception as e:
-        print(f"error: {e}")
-
-def json_check_key(data, name, key):
-    for item in data[key]:
-        if item.get('name') == name:
-            return True
-    return False
-
+        print(f"Error writing to JSON: {e}")
 
 if __name__ == '__main__':
     menu()

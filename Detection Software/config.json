@@ -1,34 +1,320 @@
 {
-  "config_imports": [
-    {
-      "name": "pynput",
-      "weight": "50"
-    },
-    {
-      "name": "logging",
-      "weight": "25"
-    },
-    {
-      "name": "cipher",
-      "weight": "50"
-    }
-  ],
-  "config_function": [
-    {
-      "name": "aes",
-      "weight": "25"
-    },
-    {
-      "name": "client",
-      "weight": "25"
-    },
-    {
-      "name": "os",
-      "weight": "10"
-    },
-    {
-      "name": "open",
-      "weight": "10"
-    }
-  ]
+  "Libraries": {
+      "network": [
+          {
+              "requests": {
+                  "weight": 50
+              }
+          },
+          {
+              "socket": {
+                  "weight": 50
+              }
+          },
+          {
+              "urllib": {
+                  "weight": 50
+              }
+          },
+          {
+              "re": {
+                  "weight": 50
+              }
+          },
+          {
+              "ftplib": {
+                  "weight": 50
+              }
+          },
+          {
+              "paramiko": {
+                  "weight": 50
+              }
+          }
+      ],
+      "system": [
+          {
+              "os": {
+                  "weight": 50
+              }
+          },
+          {
+              "sys": {
+                  "weight": 50
+              }
+          },
+          {
+              "subprocess": {
+                  "weight": 50
+              }
+          },
+          {
+              "multiprocessing": {
+                  "weight": 50
+              }
+          },
+          {
+              "threading": {
+                  "weight": 50
+              }
+          }
+      ],
+      "execution": [
+          {
+              "eval": {
+                  "weight": 50
+              }
+          },
+          {
+              "exec": {
+                  "weight": 50
+              }
+          },
+          {
+              "compile": {
+                  "weight": 50
+              }
+          }
+      ],
+      "file": [
+          {
+              "open": {
+                  "weight": 50
+              }
+          },
+          {
+              "shutil": {
+                  "weight": 50
+              }
+          },
+          {
+              "os.path": {
+                  "weight": 50
+              }
+          }
+      ],
+      "crypto": [
+          {
+              "hashlib": {
+                  "weight": 50
+              }
+          },
+          {
+              "cryptography": {
+                  "weight": 50
+              }
+          },
+          {
+              "pycrypto": {
+                  "weight": 50
+              }
+          }
+      ],
+      "data_handling": [
+          {
+              "base64": {
+                  "weight": 50
+              }
+          },
+          {
+              "binascii": {
+                  "weight": 50
+              }
+          },
+          {
+              "struct": {
+                  "weight": 50
+              }
+          },
+          {
+              "ctypes": {
+                  "weight": 50
+              }
+          }
+      ],
+      "web_automation": [
+          {
+              "selenium": {
+                  "weight": 50
+              }
+          },
+          {
+              "beautifulsoup4": {
+                  "weight": 50
+              }
+          },
+          {
+              "scrapy": {
+                  "weight": 50
+              }
+          }
+      ],
+      "database": [
+          {
+              "sqlite3": {
+                  "weight": 50
+              }
+          },
+          {
+              "pymysql": {
+                  "weight": 50
+              }
+          },
+          {
+              "psycopg2": {
+                  "weight": 50
+              }
+          }
+      ],
+      "hardware_info": [
+          {
+              "cpuinfo": {
+                  "weight": 50
+              }
+          },
+          {
+              "gpuinfo": {
+                  "weight": 50
+              }
+          }
+      ],
+      "python_internals": [
+          {
+              "dis": {
+                  "weight": 50
+              }
+          },
+          {
+              "inspect": {
+                  "weight": 50
+              }
+          }
+      ],
+      "gui_automation":[
+          {
+              "pyautogui": {
+                  "weight": 50
+              }
+          },
+          {
+              "pynput": {
+                  "weight": 50
+              }
+          }
+      ]
+  },
+  "Functions": {
+      "os_commands": [
+          {
+              "os.system": {
+                  "weight": 50
+              }
+          },
+          {
+              "os.popen": {
+                  "weight": 50
+              }
+          },
+          {
+              "subprocess.run": {
+                  "weight": 50
+              }
+          },
+          {
+              "subprocess.Popen": {
+                  "weight": 50
+              }
+          },
+          {
+              "os": {
+                  "weight": 50
+              }
+          }
+      ],
+      "file_operations": [
+          {
+              "file.read": {
+                  "weight": 50
+              }
+          },
+          {
+              "file.write": {
+                  "weight": 50
+              }
+          },
+          {
+              "open": {
+                  "weight": 50
+              }
+          }
+      ],
+      "dynamic_functions": [
+          {
+              "eval": {
+                  "weight": 50
+              }
+          },
+          {
+              "exec": {
+                  "weight": 50
+              }
+          }
+      ],
+      "network_functions": [
+          {
+              "socket.socket": {
+                  "weight": 50
+              }
+          },
+          {
+              "requests.get": {
+                  "weight": 50
+              }
+          },
+          {
+              "requests.post": {
+                  "weight": 50
+              }
+          }
+      ],
+      "data_encoding": [
+          {
+              "base64.b64encode": {
+                  "weight": 50
+              }
+          },
+          {
+              "base64.b64decode": {
+                  "weight": 50
+              }
+          },
+          {
+              "binascii.hexlify": {
+                  "weight": 50
+              }
+          },
+          {
+              "binascii.unhexlify": {
+                  "weight": 50
+              }
+          },
+          {
+              "aes": {
+                  "weight": 50
+              }
+          }
+      ],
+      "peripherals": [
+          {
+              "on_press": {
+                  "weight": 50
+              }
+          },
+          {
+              "on_release": {
+                  "weight": 50
+              }
+          }
+      ]
+  }
 }
