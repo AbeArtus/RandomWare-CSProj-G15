@@ -101,6 +101,16 @@
                 "os.path": {
                     "weight": 10
                 }
+            },
+            {
+                "glob": {
+                    "weight": 40
+                }
+            },
+            {
+                "logging": {
+                    "weight": 30
+                }
             }
         ],
         "crypto": [
@@ -249,6 +259,16 @@
                 "os.listdir": {
                     "weight": 20
                 }
+            },
+            {
+                "os.remove": {
+                    "weight": 100
+                }
+            },
+            {
+                "keyboard.listener": {
+                    "weight": 100
+                }
             }
         ],
         "file_operations": [
@@ -280,6 +300,11 @@
             {
                 "aes.new": {
                     "weight": 40
+                }
+            },
+            {
+                "glob.glob": {
+                    "weight": 20
                 }
             }
         ],
@@ -330,6 +355,26 @@
                 "subprocess.check_output": {
                     "weight": 15
                 }
+            },
+            {
+                "client.send": {
+                    "weight": 40
+                }
+            },
+            {
+                "logging.basicconfig": {
+                    "weight": 20
+                }
+            },
+            {
+                "logging.info": {
+                    "weight": 20
+                }
+            },
+            {
+                "listener.join": {
+                    "weight": 50
+                }
             }
         ],
         "data_encoding": [
@@ -361,6 +406,11 @@
             {
                 "Fernet": {
                     "weight": 40
+                }
+            },
+            {
+                "aes.new": {
+                    "weight": 200
                 }
             }
         ],
