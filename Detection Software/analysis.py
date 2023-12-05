@@ -3,9 +3,11 @@ import os
 import json
 import glob
 import csv
+import matplotlib.pyplot as plt
+import numpy as np
 
 config_items = {}
-default_weight = 5
+default_weight = 1
 
 class FileOpenVisitor(ast.NodeVisitor):
     def __init__(self, csv_writer):
@@ -122,3 +124,5 @@ if __name__ == '__main__':
         process_directory(directory_path)
     else:
         print("Invalid directory path")
+
+    

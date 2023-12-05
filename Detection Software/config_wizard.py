@@ -139,7 +139,7 @@ def open_json():
 
 def write_json(data):
     try:
-        with open('config.json', 'w') as json_file:
+        with open('Detection Software/config.json', 'w') as json_file:
             json.dump(data, json_file, indent=4)
     except Exception as e:
         print(f"Error writing to JSON: {e}")
