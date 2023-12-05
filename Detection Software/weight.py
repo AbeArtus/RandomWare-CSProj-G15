@@ -12,6 +12,7 @@ def calculate_risk(directory_path):
 
     csv_files = glob.glob(os.path.join(directory_path, '*.csv'))
     rps = []
+    i=1
     for csv_file in csv_files:
         ml, mf, tl, tf = 0, 0, 0, 0
         threshold_boolean = True
@@ -39,18 +40,21 @@ def calculate_risk(directory_path):
 
         # Calculate Risk Percentage (RP)
         rp = ((ml + mf) / (tf if tf > 0 else 1)) * saf
-        #if rp > 100:
-        #    rp = 100
+        if rp > 100:
+            rp = 100
      
         rps.append(rp)
-        print(f"Risk analysis for {os.path.basename(csv_file)}:")
+        print(f"{i}: {os.path.basename(csv_file)} RP: {rp:.2f}%")
+        i = i+1
+        #print(f"Risk analysis for {os.path.basename(csv_file)}:")
         #print(f"  ML (Malicious Libraries): {ml}")
         #print(f"  MF (Malicious Functions): {mf}")
         #print(f"  TL (Total Lines): {tl}")
         #print(f"  TF (Total Functions): {tf}")
         #print(f"  SAF (Scale Adjustment Factor): {saf:.2f}")
-        print(f"  RP (Risk Percentage): {rp:.2f}%\n")
+        #print(f"  RP (Risk Percentage): {rp:.2f}%")
         #print(f"  Threshold frogiveness starting at weight {threshold} is {threshold_boolean} at {threshold_forgiveness}\n")
+
     return rps
 
 def stemPlot(x,y, title = "Plot",xAxis = "xAxis", yAxis = "yAxis"):
@@ -65,9 +69,9 @@ directory_path = input("Enter the path to the directory containing csv files: ")
 if os.path.isdir(directory_path):
     # calculate the rps and enumerate each file
         rps = calculate_risk(directory_path)
-        idx = range(len(rps))
+        idx = range(1, len(rps)+1)
         # print out the mean RP for the Directory
-        print(f"mean RP: {np.mean(rps)}")
+        print(f"mean RP: {np.mean(rps):.2f}%")
         # Plot the RP values 
         stemPlot(idx, rps,"Risk Percentage of python files","Python Program","Risk Percentage")
 else:
